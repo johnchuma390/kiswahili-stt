@@ -1,0 +1,10 @@
+{
+  "model": "openai/whisper-small",
+  "stage": "baseline_zero_shot",
+  "dataset": "FLEURS sw_ke test set",
+  "samples_evaluated": 487,
+  "word_error_rate": 0.9964,
+  "char_error_rate": 0.379,
+  "wer_percent": 99.64,
+  "cer_percent": 37.9
+}
