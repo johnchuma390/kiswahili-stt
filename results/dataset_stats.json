@@ -1,0 +1,20 @@
+{
+  "dataset": "FLEURS Swahili (sw_ke)",
+  "splits": {
+    "train": 2998,
+    "validation": 210,
+    "test": 487
+  },
+  "total_samples": 3695,
+  "train_hours": 12.75,
+  "sampling_rate": 16000,
+  "max_duration_sec": 30,
+  "min_duration_sec": 1,
+  "preprocessing": [
+    "Filtered samples > 30 seconds",
+    "Filtered samples < 1 second",
+    "Lowercased transcriptions",
+    "Removed special characters",
+    "Normalised whitespace"
+  ]
+}
