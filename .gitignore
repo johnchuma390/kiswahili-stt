@@ -1,0 +1,16 @@
+
+# Project-specific ignores
+data/raw/
+data/processed/
+data/splits/
+models/checkpoints/
+models/quantised/
+*.wav
+*.mp3
+*.flac
+*.pt
+*.bin
+*.onnx
+__pycache__/
+.env
+venv/
