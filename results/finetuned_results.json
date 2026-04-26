@@ -1,0 +1,14 @@
+{
+  "model": "openai/whisper-small fine-tuned on FLEURS sw_ke",
+  "stage": "finetuned_round1",
+  "dataset": "FLEURS sw_ke test set",
+  "samples_evaluated": 487,
+  "word_error_rate": 0.2543,
+  "char_error_rate": 0.068,
+  "wer_percent": 25.43,
+  "cer_percent": 6.8,
+  "baseline_wer_percent": 99.64,
+  "baseline_cer_percent": 37.9,
+  "wer_improvement": 74.21,
+  "cer_improvement": 31.1
+}
