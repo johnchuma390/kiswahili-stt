@@ -9,8 +9,11 @@ test_set = load_from_disk("data/splits/test")
 print(f"Test samples: {len(test_set)}")
 
 print("\nLoading Whisper-Small model...")
-processor = WhisperProcessor.from_pretrained("openai/whisper-small")
+processor = WhisperProcessor.from_pretrained("openai/whisper-small", language="sw", task="transcribe")
 model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-small")
+model.generation_config.language = "sw"
+model.generation_config.task = "transcribe"
+model.generation_config.forced_decoder_ids = processor.get_decoder_prompt_ids(language="sw", task="transcribe")
 model.eval()
 
 references = []
@@ -34,9 +37,7 @@ for i, sample in enumerate(test_set):
 
         with torch.no_grad():
             predicted_ids = model.generate(
-                inputs["input_features"],
-                language="sw",
-                task="transcribe"
+                inputs["input_features"]
             )
 
         hypothesis = processor.batch_decode(
@@ -65,7 +66,7 @@ print(f"  Char Error Rate   : {baseline_cer:.4f} ({baseline_cer*100:.2f}%)")
 print("="*60)
 
 print("\nSample predictions (first 5):")
-for i in range(5):
+for i in range(min(5, len(references))):
     print(f"\n  Sample {i+1}:")
     print(f"  REF : {references[i]}")
     print(f"  HYP : {hypotheses[i]}")
